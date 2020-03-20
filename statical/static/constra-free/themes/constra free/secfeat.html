@@ -1,0 +1,113 @@
+{% load staticfiles %}
+<section id="ts-service-area" class="ts-service-area">
+			<div class="container">
+				<div class="row text-center">
+
+					<h3 class="section-sub-title">{{ Mpage.name}}</h3>
+				</div>
+				<!--/ Title row end -->
+
+				<div class="row">
+                   {% for etapy in Etapy %}
+					<div class="col-md-4">
+
+						<div class="ts-service-box">
+							<div class="ts-service-box-img pull-left">
+                                 <h3 class="ts-service-box-info"><a href="#">{{ etapy.name }}</a></h3>
+								<img src="{% static etapy.href %}" class="img-responsive" alt="">
+							</div>
+							<div >
+
+								<p>{{ etapy.answer }}</p>
+							</div>
+						</div><!-- Service 1 end -->
+					</div><!-- Col end -->
+
+
+					<div class="col-md-4 text-center">
+						<img class="service-center-img img-responsive" src="{% static 'uploads/web/statical.jpg' %}" alt="" />
+					</div><!-- Col end -->
+
+					<div class="col-md-4">
+						<div >
+							<div class="ts-service-box-img pull-left">
+                                <h3 class="ts-service-box-info"><a href="#">{{ etapy.namenext }}</a></h3>
+
+								<img src="{% static etapy.href1 %}" class="img-responsive" alt="">
+							</div>
+							<div class="ts-service-box-info">
+
+								<p>{{ etapy.answernext }}</p>
+							</div>
+
+						</div><!-- Service 4 end -->
+					</div><!-- Col end -->
+                        {% endfor %}
+				</div><!-- Content row end -->
+
+			</div>
+			<!--/ Container end -->
+		</section><!-- Service end -->
+<section id="ts-features" class="ts-features">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-xs-12">
+                <div class="ts-intro">
+                    <h3 class="into-sub-title">{{ Mpage.title}}</h3>
+                    {{ Mpage.textblock|safe}}
+                </div><!-- Intro box end -->
+
+                <div class="gap-20"></div>
+
+                <div class="row">
+                    {% for values in Values%}
+                    <div class="col-md-6">
+                        <div class="ts-service-box">
+                            <span class="ts-service-icon">
+                                <i class="{{ values.icon }}"></i>
+                            </span>
+                            <div class="ts-service-box-content">
+                                <h3 class="service-box-title">{{ values.name }}</h3>
+                            </div>
+                        </div><!-- Service 1 end -->
+                    </div><!-- col end --> {% endfor %}
+
+                </div><!-- Content row 1 end -->
+
+            </div><!-- Col end -->
+
+            <div class="col-md-6 col-xs-12">
+                <h3 class="into-sub-title">{{ Mpage.title1 }}</h3>
+                {{ Mpage.textblock1|safe}}
+
+                 {% for faq in faq.faq.all%}
+                <div class="panel-group" id="accordion">
+
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                            {% if forloop.counter == 1  %}
+                           <a data-toggle="collapse" data-parent="#accordionA, #accordionB" href="#collapseOne">
+                           {% else %}<a data-toggle="collapse" class="collapsed" data-parent="#accordionA, #accordionB" href="#collapse{{ forloop.counter }}">{% endif %}
+                           {{ forloop.counter }}. {{ faq.question|safe }}</a>  </h4>
+
+
+                        </div>{% if forloop.counter == 1  %}
+                      <div id="collapseOne" class="panel-collapse collapse in">
+                      {% else %}<div id="collapse{{ forloop.counter }}" class="panel-collapse collapse"> {% endif %}
+                           <div class="panel-body">
+                           {{ faq.answer|safe }}
+                             </div>
+                      </div>
+                    <!--/ Panel 1 end-->
+                </div>{% endfor %}
+                <!--/ Accordion end -->
+
+            </div><!-- Col end -->
+        </div><!-- Row end -->
+    </div><!-- Container end -->
+</section><!-- Feature are end -->
+
+
+

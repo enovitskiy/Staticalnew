@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load staticfiles %}
+{% if sspage %}
+{% include 'service-single.html' %}
+{% elif  spage %}
+{% for v in spage %}
+{% include v.template_name %}
+{% endfor %}
+{% elif page == 'thanks' %}
+{% include 'thanks.html' %}
+{% elif page %}
+{% for v in page %}
+{% include v.template_name %}
+{% endfor %}
+{% else %}
+{% include 'index1.html' %}
+{% endif %}
+</html>

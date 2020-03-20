@@ -1,0 +1,23 @@
+{% extends 'index.html' %}
+{% load staticfiles %}
+
+{% block index %}
+<h1 class="site-heading text-center text-white d-none d-lg-block">
+    <span class="site-heading-upper text-primary mb-3"> Стабилизация грунтов основания </span>
+    <span class="site-heading-upper text-primary mb-3">Uretek - ремонт без ракопок</span>
+  </h1>
+{% endblock %}
+{% block section %}
+{% for v in page %}
+
+{% include v.template_name %}
+
+{% endfor %}
+{% endblock %}
+{% block footer %}
+ <footer class="footer text-faded text-center py-5">
+    <div class="container">
+      <p class="m-0 small">Copyright &copy; Your Website 2019</p>
+    </div>
+  </footer>
+{% endblock %}

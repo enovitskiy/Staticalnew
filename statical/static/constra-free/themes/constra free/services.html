@@ -1,0 +1,58 @@
+{% load staticfiles %}
+{% include 'head.html' %}
+<body>
+
+	{% include 'social.html' %}
+    {% include 'header.html' %}
+    <section id="main-container" class="main-container">
+      <div class="container">
+         {% if page  %} {% for v in page %}
+         <div class="row">
+            <div class="col-md-12">
+               <div class="isotope-nav" data-isotope-nav="isotope">
+                  <ul>{% for subv in v.proj.all%} {% if forloop.counter == 1  %}
+                     <li><a href="{{ subv.href }}" class="active" data-filter="{{ subv.dafilter }}">{{ subv.title }}</a></li>
+                     {% else %}
+                     <li><a href="{{ subv.href }}" data-filter="{{ subv.dafilter }}">{{ subv.title }}</a></li>{% endif %}{% endfor %}
+                  </ul>
+               </div><!-- Isotope filter end -->
+            </div><!-- Filter col end -->
+         </div><!-- Filter row end -->
+
+
+         <div id="isotope" class="isotope">
+               {% for subv in v.proj.all%}
+             {% for example in subv.example.all%}
+
+               <div class="col-md-4 col-sm-6 col-xs-12 {{ example.title }} isotope-item">
+                  <div class="isotope-img-container">
+                     <a class="gallery-popup" href="{% static example.href  %}">
+                        <img class="img-responsive" src="{% static example.src %}" alt="">
+                        <span class="gallery-icon"><i class="fa fa-plus"></i></span>
+                     </a>
+
+                     <div class="project-item-info">
+                        <div class="project-item-info-content">
+                           <h3 class="project-item-title">
+                               {% if example.slug   %}
+                           <a href="/{{ path0.slug }}/example/{{ example.slug }}">{{ example.projectname}} </a>
+                               {% else %}
+                           <a href="/{{ path0.slug }}/">{{ example.projectname}} </a>
+                               {% endif %}
+                           </h3>
+                           <p class="project-cat">{{ subv.title }}</p>
+                        </div>
+                     </div>
+
+                  </div>
+
+               </div><!-- Isotope item 1 end --> {% endfor %}{% endfor %}
+         </div>
+
+      {% endfor %}{% endif %}
+      </div><!-- Conatiner end -->
+   </section><!-- Main container end -->
+{% include 'footer.html' %}
+{% include 'script.html' %}
+
+</body>

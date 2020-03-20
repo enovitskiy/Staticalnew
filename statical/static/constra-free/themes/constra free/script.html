@@ -1,0 +1,27 @@
+{% load staticfiles %}
+<!-- Javascript Files
+	================================================== -->
+
+		<!-- initialize jQuery Library -->
+		<script type="text/javascript" src="{% static 'constra-free/themes/constra free/js/jquery.js' %}"></script>
+		<!-- Bootstrap jQuery -->
+		<script type="text/javascript" src="{% static 'constra-free/themes/constra free/js/bootstrap.min.js' %}"></script>
+		<!-- Owl Carousel -->
+		<script type="text/javascript" src="{% static 'constra-free/themes/constra free/js/owl.carousel.min.js' %}"></script>
+		<!-- Color box -->
+		<script type="text/javascript" src="{% static 'constra-free/themes/constra free/js/jquery.colorbox.js' %}"></script>
+		<!-- Isotope -->
+		<script type="text/javascript" src="{% static 'constra-free/themes/constra free/js/isotope.js' %}"></script>
+		<script type="text/javascript" src="{% static 'constra-free/themes/constra free/js/ini.isotope.js' %}"></script>
+{% if path0.slug == 'contact' %}
+
+    <!-- Google Map API Key-->
+		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAFjH1GXTSl75pY2jdFRawk2a0IecQ8VYw"></script>
+		<!-- Google Map Plugin-->
+		<script type="text/javascript" src="{% static 'constra-free/themes/constra free/js/gmap3.js' %}"></script>
+	<!-- Google recaptcha-->
+		<script src='https://www.google.com/recaptcha/api.js'></script>
+{% endif %}
+	 <!-- Template custom -->
+	 <script type="text/javascript" src="{% static 'constra-free/themes/constra free/js/custom.js' %}"></script>
+

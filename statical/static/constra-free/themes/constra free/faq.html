@@ -1,0 +1,88 @@
+{% include 'head.html' %}
+{% load staticfiles %}
+
+<body>
+
+	<div class="body-inner">
+
+		{% include 'social.html' %}
+		{% include 'header.html' %}
+
+
+   <section id="main-container" class="main-container">
+      <div class="container">
+
+         <div class="row">
+            <div class="col-md-8">
+
+               <h3 class="border-title border-left mar-t0">{{ faq.name}}</h3>
+
+                {% for faq in faq.faq.all%}
+               <div class="panel-group panel-classic" id="accordionB">
+
+                  <div class="panel panel-default">
+                      <div class="panel-heading">
+                         <h4 class="panel-title">
+                           {% if forloop.counter == 1  %}
+                           <a data-toggle="collapse" data-parent="#accordionA, #accordionB" href="#collapseOne">
+                           {% else %}<a data-toggle="collapse" class="collapsed" data-parent="#accordionA, #accordionB" href="#collapse{{ forloop.counter }}">{% endif %}
+                           {{ forloop.counter }}. {{ faq.question|safe }}</a>
+                         </h4>
+                      </div>{% if forloop.counter == 1  %}
+                      <div id="collapseOne" class="panel-collapse collapse in">
+                      {% else %}<div id="collapse{{ forloop.counter }}" class="panel-collapse collapse"> {% endif %}
+                           <div class="panel-body">
+                           {{ faq.answer|safe }}
+                        </div>
+                      </div>
+                  </div><!--/ Panel 1 end-->
+
+
+               </div><!-- Accordion end -->{% endfor %}
+
+
+            </div><!-- Col end -->
+
+            <div class="col-md-4">
+
+               <div class="sidebar sidebar-right">
+                  <div class="widget recent-posts">
+                     <h3 class="widget-title">{{ title.name}}</h3>
+
+                     <ul class="unstyled clearfix">
+
+                      {% for example in projects %}
+                        <li>
+
+                          <div class="posts-thumb pull-left"> 
+                              <a href="#"><img alt="img" src="{% static example.src %}" ></a>
+                          </div>
+
+                          <div class="post-info">
+                              <h4 class="entry-title">
+                                 <a href="/company/example/{{ example.slug }}">{{ example.projectname}}</a>
+                              </h4>
+                          </div>
+
+                          <div class="clearfix"></div>
+                        </li><!-- 1st post end-->
+
+                            {% endfor %}
+                     </ul>
+                     
+                  </div><!-- Recent post end -->
+               </div><!-- Sidebar end -->
+            
+            </div><!-- Col end -->
+            
+         </div><!-- Content row end -->
+
+      </div><!-- Container end -->
+   </section><!-- Main container end -->
+
+{% include 'footer.html' %}
+{% include 'script.html' %}
+
+</div><!-- Body inner end -->
+</body>
+

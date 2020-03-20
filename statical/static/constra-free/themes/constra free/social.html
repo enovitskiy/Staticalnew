@@ -1,0 +1,28 @@
+{% load staticfiles %}
+<div id="top-bar" class="top-bar">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12">
+                <ul class="top-info">
+                    {% for v in info %} <li><i class="{{ v.classname }}">&nbsp;</i> <p class="info-text">{{ v.text }}</p> </li>{% endfor %}
+                </ul>
+            </div>
+            <!--/ Top info end -->
+
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 top-social text-right">
+                    <ul class="unstyled">
+
+                        <li>{% for v in social %}
+                            <a title="{{ v.title }}" href="{{ v.href }}">
+                                <span class="social-icon"><i class="{{ v.classname }}"></i></span>
+                            </a>{% endfor %}
+                        </li>
+                    </ul>
+                </div>
+            <!--/ Top social end -->
+        </div>
+        <!--/ Content row end -->
+    </div>
+    <!--/ Container end -->
+</div>
+<!--/ Topbar end -->

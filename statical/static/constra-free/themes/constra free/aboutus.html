@@ -1,0 +1,124 @@
+{% load staticfiles %}
+{% include 'head.html' %}
+<body>
+
+<div class="body-inner">
+
+		{% include 'social.html' %}
+        {% include 'header.html' %}
+
+   <section id="main-container" class="main-container">
+      <div class="container">
+         <div class="row">
+            {% if spage  %} {% for v in spage %}
+
+            <div class="col-md-6">
+               {% for subv in v.subtext.all%}
+               <h3 class="column-title">{{ subv.title }}</h3>
+               {{ subv.textup|safe }} {{ subv.quote|safe }} {{ subv.textdown|safe }}
+               {% endfor %}
+            </div><!-- Col end -->
+            <div class="col-md-6">
+               <div id="page-slider" class="owl-carousel owl-theme page-slider small-bg">
+                    {% for subv in v.subslider.all %}
+                  <div class="item" style="background-image:url({% static subv.hreflogo %})">
+                     <div class="container">
+                        <div class="box-slider-content">
+                           <div class="box-slider-text">
+                              <h2 class="box-slide-title">{{ subv.name }}</h2>
+                           </div>    
+                        </div>
+                     </div>
+                  </div><!-- Item 1 end -->
+                    {% endfor %}
+               </div><!-- Page slider end-->
+            </div><!-- Col end -->
+             {% endfor %}{% endif %}
+
+         </div><!-- Content row end -->
+             {% if spage  %} {% for v in spage %}
+             <div class="post-content post-single">
+                  <div class="post-body">
+                     <div class="entry-header">
+                         {% for subv in v.subnext.all%}
+                        <h2 class="entry-title">
+                           <a href="#">{{ subv.title }}</a>
+                        </h2>
+                     </div><!-- header end -->
+                     <div class="post-media post-image image-angle">
+                        <img src="{% static subv.urljpg %}" class="img-responsive" alt="">
+                        </div>
+                     <div class="entry-content">
+                         {{ subv.textup|safe }}{{ subv.quote|safe }}{{ subv.textdown|safe }}
+                     </div>
+                     </div>
+                  </div><!-- post-body end -->
+            </div><!-- post content end -->
+                <section id="main-container" class="main-container">
+                     <div class="container">
+
+                        <div class="row">
+
+                           <div class="col-md-6">
+                              <h3 class="column-title">{{ subv.titlenext}}</h3>
+
+                              <h1>{{ subv.titlecoloumn}}</h1>
+
+                              {{ subv.textnext|safe}}
+                           </div><!--/ Col end -->
+
+
+
+
+
+
+                           <div class="col-md-6">
+                              <h3 class="column-title">{{ subv.titleparagraph}}</h3>
+                               <div class="embed-responsive">
+                        <!-- Change the url -->
+                             <iframe src="{{ subv.urlvideo }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"  width="500" height="281" allowfullscreen></iframe>
+
+                              </div>
+                               {% for faq in faq.faq.all%}
+                <div class="panel-group" id="accordion">
+
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                            {% if forloop.counter == 1  %}
+                           <a data-toggle="collapse" data-parent="#accordionA, #accordionB" href="#collapseOne">
+                           {% else %}<a data-toggle="collapse" class="collapsed" data-parent="#accordionA, #accordionB" href="#collapse{{ forloop.counter }}">{% endif %}
+                           {{ forloop.counter }}. {{ faq.question|safe }}</a>  </h4>
+
+
+                        </div>{% if forloop.counter == 1  %}
+                      <div id="collapseOne" class="panel-collapse collapse in">
+                      {% else %}<div id="collapse{{ forloop.counter }}" class="panel-collapse collapse"> {% endif %}
+                           <div class="panel-body">
+                           {{ faq.answer|safe }}
+                             </div>
+                      </div>
+                    <!--/ Panel 1 end-->
+                </div>{% endfor %}
+
+
+                               {{ subv.paragraph|safe}}
+                              <div class="gap-20"></div>
+                               {{ subv.blockquote|safe}}{% endfor %}
+                                 </div><!--/ Col end -->
+                             </div><!-- Content row 1 -->
+                     </div><!-- Container end -->
+                  </section>
+                {% endfor %}{% endif %}
+      </div><!-- Container end -->
+   </section><!-- Main container end -->
+
+
+
+
+{% include 'footer.html' %}
+{% include 'script.html' %}
+
+</div><!-- Body inner end -->
+</body>

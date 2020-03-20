@@ -1,0 +1,103 @@
+{% load staticfiles %}
+<!-- Header start -->
+<header id="header" class="header-one">
+    <div class="container">
+        <div class="row">
+            <div class="logo-area clearfix">
+                <div class="logo col-xs-12 col-md-3">
+                    <a href="/">
+                        <img src="{% static 'uploads/logo.png' %}" alt="">
+                    </a>
+                </div><!-- logo end -->
+
+                <div class="col-xs-12 col-md-9 header-right">
+                    <ul class="top-info-box">
+                        <li>
+                            <div class="info-box">
+                                <div class="info-box-content">
+                                    <p class="info-box-title">Звоните Нам</p>
+                                    <p class="info-box-subtitle">+375 17 331 53 36 (ГОР)</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="info-box">
+                                <div class="info-box-content">
+                                    <p class="info-box-title">Пишете Нам</p>
+                                    <p class="info-box-subtitle">info@uretekbelarus.com</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="last">
+                            <div class="info-box last">
+                                <div class="info-box-content">
+                                    <p class="info-box-title">Лицензионный сайт</p>
+                                   <a href="https://statical.eu/"> <p class="info-box-subtitle">statical.eu</p></a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="header-get-a-quote">
+                            <a class="btn btn-primary" href="/contact/#order">Консультация</a>
+                        </li>
+                    </ul><!-- Ul end -->
+                </div><!-- header right end -->
+            </div><!-- logo area end -->
+
+        </div><!-- Row end -->
+    </div><!-- Container end -->
+
+    <nav class="site-navigation navigation navdown">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="site-nav-inner pull-left">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+
+                        {% include 'navbar.html' %}
+                        <!--/ Collapse end -->
+
+                    </div><!-- Site Navbar inner end -->
+
+                </div>
+                <!--/ Col end -->
+            </div>
+            <!--/ Row end -->
+
+
+        </div>
+        <!--/ Container end -->
+
+    </nav>
+    <!--/ Navigation end -->
+</header>
+<!--/ Header end -->
+{% if spage  %}
+<div id="banner-area" class="banner-area" style="background-image:url({% static path1.hreflogo %})">
+{% elif page  %} <div id="banner-area" class="banner-area" style="background-image:url({% static path0.hreflogo %})">
+    {% else %}
+<div>
+    {% endif %}
+
+    {% if path0  %}
+  <div class="banner-text">
+     <div class="container">
+        <div class="row">
+           <div class="col-xs-12">
+              <div class="banner-heading">
+                 <h1 class="banner-title">{{ path0}}</h1>
+                 <ol class="breadcrumb">
+                    <li>{{ path0}}</li>{% if path1  %}
+                    <li>{{ path1}}</li>{% endif %}
+                 </ol>
+              </div>
+           </div><!-- Col end -->
+        </div><!-- Row end -->
+     </div><!-- Container end -->
+  </div><!-- Banner text end -->
+    {% endif %}
+</div><!-- Banner area end -->

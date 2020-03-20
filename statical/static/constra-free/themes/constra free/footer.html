@@ -1,0 +1,55 @@
+{% load staticfiles %}
+<footer id="footer" class="footer bg-overlay">
+    <div class="footer-main">
+        <div class="container">
+            <div class="row">
+                {% for v in foot %}
+                <div class="{{ v.classname }}">
+                    {% for f in v.type.all %}
+                    <h3 class="widget-title">{{ f.title }}</h3>
+                    {% if v.title == 'Type1'  %}  {% for t in f.textsub.all %}
+                    <img class="footer-logo" src="{% static '/uploads/web/logo-statical.png' %}" alt="" />{{ t.footertext|safe }} {% endfor %}{% endif %}
+                    {% if v.title == 'Type3'  %} <ul class="list-arrow"> {% for t in f.textsub.all %}{{ t.footertext|safe }} {% endfor %}</ul>{% endif %}
+
+
+                        <div class="{{ v.classdiv}}">
+
+                            {% if v.title == 'Type2'  %}{% for t in f.textsub.all %}{{ t.footertext|safe }} {% endfor %}{% endif %}
+                            {% if v.title == 'Type1'  %} <ul>{% for s in social %}<li> <a href="{{ s.href }}"><i class="{{ s.classname }}"></i></a> </li>{% endfor %}</ul>{% endif %}
+                        </div><!-- Footer social end -->{% endfor %}
+                </div><!-- Col end -->{% endfor %}
+
+
+            </div><!-- Row end -->
+        </div><!-- Container end -->
+    </div><!-- Footer main end -->
+
+    <div class="copyright">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6">
+                    <div class="copyright-info">
+                        {% for v in info %}
+                        <span>{{ v.text }}<a href="{{v.href}}">  {{ v.href }}</a></span>{% endfor %}
+                    </div>
+                </div>
+
+                <div class="col-xs-12 col-sm-6">
+                    <div class="footer-menu">
+                        <ul class="nav unstyled">{% for v in nav %}
+                            <li><a href='/{{ v.slug }}'>{{ v.name }}</a></li>{% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div><!-- Row end -->
+
+            <div id="back-to-top" data-spy="affix" data-offset-top="10" class="back-to-top affix">
+                <button class="btn btn-primary" title="Back to Top">
+                    <i class="fa fa-angle-double-up"></i>
+                </button>
+
+
+        </div><!-- Container end -->
+    </div><!-- Copyright end -->
+
+</footer><!-- Footer end -->
