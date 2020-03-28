@@ -15,7 +15,7 @@
                <div id="page-slider" class="owl-carousel owl-theme page-slider page-slider-small">
                  {% for picture in v.pictures.all%}
                   <div class="item">
-                     <img src="{% static picture.href1 %}" alt="" />
+                     <img src="{% static picture.href1 %}" alt="{{ picture.alt }}" />
                   </div> {% endfor %}
 
                </div><!-- Page slider end -->

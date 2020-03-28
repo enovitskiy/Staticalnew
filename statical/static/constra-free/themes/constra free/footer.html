@@ -8,7 +8,7 @@
                     {% for f in v.type.all %}
                     <h3 class="widget-title">{{ f.title }}</h3>
                     {% if v.title == 'Type1'  %}  {% for t in f.textsub.all %}
-                    <img class="footer-logo" src="{% static '/uploads/web/logo-statical.png' %}" alt="" />{{ t.footertext|safe }} {% endfor %}{% endif %}
+                    <img class="footer-logo" src="{% static '/uploads/web/logo-statical.png' %}" alt="Statical" />{{ t.footertext|safe }} {% endfor %}{% endif %}
                     {% if v.title == 'Type3'  %} <ul class="list-arrow"> {% for t in f.textsub.all %}{{ t.footertext|safe }} {% endfor %}</ul>{% endif %}
 
 

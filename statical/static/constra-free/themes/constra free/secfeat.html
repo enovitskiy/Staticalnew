@@ -7,46 +7,46 @@
 				</div>
 				<!--/ Title row end -->
 
-				<div class="row">
-                   {% for etapy in Etapy %}
-					<div class="col-md-4">
-
-						<div class="ts-service-box">
-							<div class="ts-service-box-img pull-left">
-                                 <h3 class="ts-service-box-info"><a href="#">{{ etapy.name }}</a></h3>
-								<img src="{% static etapy.href %}" class="img-responsive" alt="">
-							</div>
-							<div >
-
-								<p>{{ etapy.answer }}</p>
-							</div>
-						</div><!-- Service 1 end -->
-					</div><!-- Col end -->
-
-
-					<div class="col-md-4 text-center">
-						<img class="service-center-img img-responsive" src="{% static 'uploads/web/statical.jpg' %}" alt="" />
-					</div><!-- Col end -->
-
-					<div class="col-md-4">
-						<div >
-							<div class="ts-service-box-img pull-left">
-                                <h3 class="ts-service-box-info"><a href="#">{{ etapy.namenext }}</a></h3>
-
-								<img src="{% static etapy.href1 %}" class="img-responsive" alt="">
-							</div>
-							<div class="ts-service-box-info">
-
-								<p>{{ etapy.answernext }}</p>
-							</div>
-
-						</div><!-- Service 4 end -->
-					</div><!-- Col end -->
-                        {% endfor %}
-				</div><!-- Content row end -->
-
 			</div>
 			<!--/ Container end -->
+
+
+
+         <div class="row">
+             {% for etapy in Etapy %}
+
+            <div class="col-md-4">
+               <div class="ts-pricing-box">
+                   <img class="ts-pricing-features" src="{% static etapy.href %}" class="img-responsive" alt="{{ etapy.alt}}">
+                  <div class="ts-pricing-header">
+                     <h2 class="ts-pricing-name">{{ etapy.name }}</h2>
+
+                  </div><!-- Pricing header -->
+                  <div class="ts-pricing-features">
+                       <p>{{ etapy.answer }}</p>
+                  </div><!-- Features end -->
+               </div><!-- Plan 1 end -->
+            </div><!-- Col end -->
+               <div class="col-md-4">
+               <div class="ts-pricing-box ts-pricing-featured">
+                   <img class="ts-pricing-features" src="{% static etapy.href1 %}" class="img-responsive" alt="{{ etapy.alt1}}">
+                  <div class="ts-pricing-header">
+                     <h2 class="ts-pricing-name">{{ etapy.namenext }}</h2>
+
+                  </div><!-- Pricing header -->
+                  <div class="ts-pricing-features">
+                       <p>{{ etapy.answernext }}</p>
+                  </div><!-- Features end -->
+               </div><!-- Plan 1 end -->
+            </div><!-- Col end -->
+
+             {% endfor %}
+         </div><!--/ Content row end -->
+
+
+
+
+
 		</section><!-- Service end -->
 <section id="ts-features" class="ts-features">
     <div class="container">
