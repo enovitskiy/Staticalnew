@@ -1,4 +1,4 @@
-{% load staticfiles %}
+{% load static %}
 {% include 'head.html' %}
 <body>
 
@@ -27,7 +27,7 @@
                <div class="col-md-4 col-sm-6 col-xs-12 {{ example.title }} isotope-item">
                   <div class="isotope-img-container">
                      <a class="gallery-popup" href="{% static example.href  %}">
-                        <img class="img-responsive" src="{% static example.src %}" alt="">
+                        <img class="img-responsive" src="{% static example.src %}" alt="{{ example.alt }}">
                         <span class="gallery-icon"><i class="fa fa-plus"></i></span>
                      </a>
 

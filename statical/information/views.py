@@ -62,7 +62,7 @@ def construction(request, slug,sslug='empty'):
     response['info'] = Social.objects.filter(social=False)
     response['path0'] = [Navconstruct.objects.get(slug=slug)][0]
     response['path1'] = topic
-    response['social'] = [Social.objects.filter(social=True)]
+    response['social'] = Social.objects.filter(social=True)
     response['footer'] = Footer.objects.all()
     response['foot'] = Footercont.objects.all()
     response['text'] = Text.objects.all()

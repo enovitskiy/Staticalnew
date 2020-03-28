@@ -46,7 +46,7 @@
                         </h2>
                      </div><!-- header end -->
                      <div class="post-media post-image image-angle">
-                        <img src="{% static subv.urljpg %}" class="img-responsive" alt="">
+                        <img src="{% static subv.urljpg %}" class="img-responsive" alt="{{ subv.alt}}">
                         </div>
                      <div class="entry-content">
                          {{ subv.textup|safe }}{{ subv.quote|safe }}{{ subv.textdown|safe }}
